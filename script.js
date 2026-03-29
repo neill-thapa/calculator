@@ -10,12 +10,21 @@ buttons.forEach(button => {
     button.addEventListener("click", () => {
         const value = button.textContent;
 
-        if (!isNaN(value)) {
+        if (!isNaN(value) || value === ".") {
             if (!operator) {
+                if (value === "." && firstNumber.includes(".")) {
+                    return;
+                }
+
                 firstNumber += value;
                 updateOpsDisplay();
+        
             }
             else {
+                if (value === "." && secondNumber.includes(".")) {
+                    return;
+                }
+
                 secondNumber += value;
                 updateOpsDisplay();
             }
@@ -28,7 +37,7 @@ buttons.forEach(button => {
             compute();
             operator = null;
         }
-        else if (value === "clear") {
+        else if (value === "Clear") {
             firstNumber = "";
             secondNumber = "";
             operator = null;
