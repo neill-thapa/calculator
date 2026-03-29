@@ -44,6 +44,31 @@ buttons.forEach(button => {
             updateOpsDisplay();
             updateResultDisplay("");
         }
+        else if (value === "⌫") {
+            // if user is typing firstNumber
+            if (secondNumber) {
+                secondNumber = secondNumber.slice(0, -1);
+            }
+            // if typing secondNumber
+            else if (operator) {
+                operator = null;
+            }
+            else if (firstNumber) {
+                firstNumber = firstNumber.slice(0, -1);
+            }
+
+            updateOpsDisplay();
+        }
+        else if (value === "+/-") {
+            if (secondNumber) {
+                secondNumber = toggleSign(secondNumber);
+            }
+            else if (firstNumber) {
+                firstNumber = toggleSign(firstNumber);
+            }
+
+            updateOpsDisplay();
+        }
         else {
             if (secondNumber) {
                 compute();
@@ -66,14 +91,20 @@ function updateResultDisplay(result) {
 
 function compute() {
     const result = operate(operator, firstNumber, secondNumber);
+    console.log(typeof(result));
 
     if (result === null) {
         return;
     }
 
-    firstNumber = result.toString();
+    let roundedResult = parseFloat(result.toFixed(7));
+    firstNumber = roundedResult.toString();
     secondNumber = "";
-    updateResultDisplay(result);
+    updateResultDisplay(roundedResult);
+}
+
+function toggleSign(number) {
+    return number * -1;
 }
 
 function operate(operator, num1, num2) {
