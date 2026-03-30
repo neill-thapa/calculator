@@ -3,36 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Calculator</title>
 </head>
 <body>
     <h1>Basic Calculator</h1>
 
-    <p>
-        Operation: <span id="displayOperations"></span>
-    </p>
-    <p>
-        Result: <span id="displayResults"></span>
-    </p>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>0</button>
-    <button>.</button>
-    <button>+</button>
-    <button>-</button>
-    <button>×</button>
-    <button>÷</button>
-    <button>=</button>
-    <button>+/-</button>
-    <button>⌫</button>
-    <button>Clear</button>
+    <div id="container">
+        <div id="calcDisplay">
+            <input type="text" id="display" readonly>
+        </div>
+
+        <div class="buttons">
+            <div id="left-buttons">
+                <div>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                </div>
+                <div>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                </div>
+                <div>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                </div>
+                <div>
+                    <button id="dot-button">.</button>
+                    <button>0</button>
+                    <button id="equals-button">=</button>
+                </div>
+            </div>
+            <div id="right-buttons">
+                <button>+</button>
+                <button>-</button>
+                <button>×</button>
+                <button>÷</button>
+            </div>
+        </div>
+        <div class="essence">  
+            <button id="toggle">+/-</button>
+            <button id="backspace">⌫</button>
+            <button id="clear">Clear</button>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>

@@ -1,6 +1,5 @@
 const buttons = document.querySelectorAll("button");
-const displayOperations = document.querySelector("#displayOperations");
-const displayResults = document.querySelector("#displayResults");
+const display = document.querySelector("#display");
 
 let firstNumber = "";
 let secondNumber = "";
@@ -81,12 +80,12 @@ buttons.forEach(button => {
 });
 
 function updateOpsDisplay() {
-    displayOperations.textContent =
+    display.value =
         `${firstNumber} ${operator || ""} ${secondNumber}`;
 }
 
 function updateResultDisplay(result) {
-    displayResults.textContent = result;
+    display.value = result;
 }
 
 function compute() {
